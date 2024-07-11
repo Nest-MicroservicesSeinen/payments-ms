@@ -39,8 +39,8 @@ export class PaymentsService {
 
             line_items: lineItems,
             mode: 'payment',
-            success_url: 'http://localhost:3003/api/payments/success',
-            cancel_url: 'http://localhost:3003/api/payments/cancel'
+            success_url: envs.stripeSuccessUrl,
+            cancel_url: envs.stripeCancelUrl
 
         });
 
@@ -55,7 +55,7 @@ export class PaymentsService {
         //?Testing
         // const endpointSecret = "whsec_1cae8992e006d406b9ec76910dfc7c0b9e44da4ffe340d4b5f364caa273157c9";
         //?Real
-        const endpointSecret = "whsec_XWUQFatHGIQCO3zaGj5r5CkG7WPuFeXf";
+        const endpointSecret = envs.stripeEndpointSecret;
 
         let event: Stripe.Event;
 
